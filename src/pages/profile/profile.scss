@@ -1,0 +1,24 @@
+.profile {
+  border-radius: 12px;
+  background: #fff !important;
+  margin-top: 110px;
+  margin-left: 137px;
+  margin-right: 40px;
+  padding: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 30px;
+  .btn-profile {
+    color: #fff;
+    border-radius: 6px;
+    background: #1bc58d;
+    padding: 15px 25px;
+    border: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 72%;
+  }
+}

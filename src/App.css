@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+  outline: none;
+}
+body {
+  font-family: "Mulish", sans-serif;
+  background: #eeeef5;
+}

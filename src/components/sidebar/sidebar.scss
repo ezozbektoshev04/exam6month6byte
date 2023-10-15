@@ -1,0 +1,32 @@
+.sidebar {
+  position: fixed;
+  max-width: 97px;
+  height: 100vh;
+  top: 0;
+  background: #5b5ce2;
+  box-shadow: 10px 0px 50px 0px rgba(0, 0, 0, 0.05);
+  padding: 30px 24px;
+  .logo-img {
+    padding-bottom: 38px;
+  }
+  .icon {
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 49px;
+    height: 50px;
+    &:hover {
+      border-radius: 6px;
+      background: #6c6de5;
+    }
+    &:visited {
+      border-radius: 6px;
+      background: #6c6de5;
+    }
+    &:active {
+      border-radius: 6px;
+      background: #6c6de5;
+    }
+  }
+}
