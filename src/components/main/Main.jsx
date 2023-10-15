@@ -134,7 +134,7 @@ const Main = () => {
                 className="input1"
                 onChange={searchInput}
               />
-              <img src="/public/image6.svg" alt="" className="img6" />
+              <img src="/image6.svg" alt="" className="img6" />
             </div>
           </div>
           <span className="line"></span>
@@ -178,12 +178,12 @@ const Main = () => {
                           <td>{el.priceSale}</td>
                           <td className="aaa">
                             <img
-                              src="/public/image7.svg"
+                              src="/image7.svg"
                               alt=""
                               onClick={() => prod.editData(el.id)}
                             />
                             <img
-                              src="/public/image8.svg"
+                              src="/image8.svg"
                               alt=""
                               onClick={() => deleteData(el.id)}
                             />
@@ -226,12 +226,12 @@ const Main = () => {
           <div className="d51">
             <div className="d52">
               <button className="add-btn" onClick={prod.changePage}>
-                <img src="/public/image10.svg" alt="" /> Новый товар
+                <img src="/image10.svg" alt="" /> Новый товар
               </button>
             </div>
             <div className="d53">
               <img
-                src="/public/image9.svg"
+                src="/image9.svg"
                 alt=""
                 className={show === false ? "img9" : "img10"}
                 onClick={changeLimitInc}
@@ -256,7 +256,7 @@ const Main = () => {
       </div>
       <div className={product.length > 0 ? "d103" : "d102"}>
         <p className="p1">Вы пока не создали ни одного товара</p>
-        <img src="/public/image12.png" alt="" className="img12" />
+        <img src="/image12.png" alt="" className="img12" />
         <button className="first-btn" onClick={prod.changePage}>
           Создать первый товар
         </button>

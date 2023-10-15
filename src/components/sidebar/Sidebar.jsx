@@ -12,15 +12,15 @@ const Sidebar = () => {
       </div>
 
       <NavLink to="/products" className="icon">
-        <img src="/public/image1.svg" alt="" />
+        <img src="/image1.svg" alt="" />
       </NavLink>
 
       <NavLink to="/profile" className="icon">
-        <img src="/public/image3.svg" alt="" />
+        <img src="/image3.svg" alt="" />
       </NavLink>
 
       <NavLink to="/add" className="icon" onClick={prod.changePage}>
-        <img src="/public/image4.svg" alt="" />
+        <img src="/image4.svg" alt="" />
       </NavLink>
     </div>
   );

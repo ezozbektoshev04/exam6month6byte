@@ -20,7 +20,7 @@ const Header = () => {
         </div>
         <div className="d3">
           <button className="header-btn">
-            <img src="/public/image5.svg" alt="" />
+            <img src="/image5.svg" alt="" />
             Выйти
           </button>
         </div>
