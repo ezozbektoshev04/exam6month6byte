@@ -7,7 +7,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 const override = {
   display: "block",
-  margin: "0 auto",
+  margin: "190px auto",
   borderColor: "aqua",
 };
 
