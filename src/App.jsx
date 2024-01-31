@@ -27,60 +27,60 @@ export const ProductContext = createContext();
 function App() {
   const { user } = UseAuth();
   return (
-    <AuthUser>
-      <Router>
-        <ProductProvider>
-          {/* <Login /> */}
-          {/* {user && <Header></Header>} */}
+    // <AuthUser>
+    <Router>
+      <ProductProvider>
+        {/* <Login /> */}
+        {/* {user && <Header></Header>} */}
 
-          {/* {user && <Sidebar />} */}
-          <Suspense fallback={<Loading />}>
-            <Sidebar />
-          </Suspense>
-          <Suspense fallback={<Loading />}>
-            <Header />
-          </Suspense>
-          <Routes>
-            <Route
-              path="/products"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <Main />
-                </Suspense>
-              }
-            />
+        {/* {user && <Sidebar />} */}
+        <Suspense fallback={<Loading />}>
+          <Sidebar />
+        </Suspense>
+        <Suspense fallback={<Loading />}>
+          <Header />
+        </Suspense>
+        <Routes>
+          <Route
+            path="/products"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Main />
+              </Suspense>
+            }
+          />
 
-            <Route
-              path="/add"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <AddToProduct />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/products/:id"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <Details />
-                </Suspense>
-              }
-            ></Route>
-            <Route path="/" element={<Login />}></Route>
-            <Route
-              path="/profile"
-              element={
-                <Suspense fallback={<Loading />}>
-                  <RequareAuth>
-                    <Profile />
-                  </RequareAuth>
-                </Suspense>
-              }
-            ></Route>
-          </Routes>
-        </ProductProvider>
-      </Router>
-    </AuthUser>
+          <Route
+            path="/add"
+            element={
+              <Suspense fallback={<Loading />}>
+                <AddToProduct />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/products/:id"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Details />
+              </Suspense>
+            }
+          ></Route>
+          <Route path="/" element={<Login />}></Route>
+          <Route
+            path="/profile"
+            element={
+              <Suspense fallback={<Loading />}>
+                <RequareAuth>
+                  <Profile />
+                </RequareAuth>
+              </Suspense>
+            }
+          ></Route>
+        </Routes>
+      </ProductProvider>
+    </Router>
+    // </AuthUser>
   );
 }
 
