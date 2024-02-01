@@ -79,7 +79,8 @@ const Main = () => {
       const res = await axios.get(
         `https://64dcf61be64a8525a0f76c4d.mockapi.io/api/v1/products`
       );
-      // console.log(res.data);
+      console.log(res.data);
+      console.log("Helo");
       setProducts(res.data);
       setLoading(false);
     } catch (error) {
