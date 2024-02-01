@@ -9,9 +9,7 @@ const AddToProduct = () => {
   const navigate = useNavigate();
   const prod = useContext(ProductProv);
   // console.log(prod);
-  const resetData = () => {
-    alert("Are you sure to reset your data?");
-  };
+
   return (
     <div className="add">
       <div className="d20">
@@ -106,15 +104,11 @@ const AddToProduct = () => {
             </div>
           </div>
           <div className="add-bot">
-            <button
-              type="submit"
-              className="btn5"
-              // onClick={() => navigate("/products")}
-            >
+            <button type="submit" className="btn5">
               Сохранить
             </button>
 
-            <button type="reset" className="btn6" onClick={resetData}>
+            <button type="reset" className="btn6" onClick={prod.resetData}>
               Отмена
             </button>
           </div>
