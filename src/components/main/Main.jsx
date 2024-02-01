@@ -150,7 +150,7 @@ const Main = () => {
                 </tr>
               </thead>
               <tbody>
-                {loading ? (
+                {/* {loading ? (
                   <ClipLoader
                     color={"blue"}
                     loading={true}
@@ -159,7 +159,7 @@ const Main = () => {
                     aria-label="Loading Spinner"
                     data-testid="loader"
                   />
-                ) : null}
+                ) : null} */}
                 {product.length > 0
                   ? filteredData.map((el) => {
                       return (
@@ -192,7 +192,7 @@ const Main = () => {
                       );
                     })
                   : null}
-                {error ? <h3>{error}</h3> : null}
+                {/* {error ? <h3>{error}</h3> : null} */}
               </tbody>
             </table>
           </div>
