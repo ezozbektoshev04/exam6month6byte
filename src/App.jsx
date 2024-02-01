@@ -13,12 +13,10 @@ const AddToProduct = lazy(() =>
 const Main = lazy(() => import("./components/main/Main"));
 
 import { ProductProvider } from "./context/PtoductContext";
-// import Details from "./pages/details/Details";
 const Details = lazy(() => import("./pages/details/Details"));
 const Login = lazy(() => import("./pages/login/Login"));
 const Profile = lazy(() => import("./pages/profile/Profile"));
-// import Login from "./pages/login/Login";
-// import Profile from "./pages/profile/Profile";
+console.log("as");
 import { AuthUser, UseAuth } from "./context/AuthContext";
 import RequareAuth from "./components/RequareAuth";
 import Loading from "./components/loading/Loading";
@@ -30,10 +28,6 @@ function App() {
     // <AuthUser>
     <Router>
       <ProductProvider>
-        {/* <Login /> */}
-        {/* {user && <Header></Header>} */}
-
-        {/* {user && <Sidebar />} */}
         <Suspense fallback={<Loading />}>
           <Sidebar />
         </Suspense>
@@ -71,9 +65,9 @@ function App() {
             path="/profile"
             element={
               <Suspense fallback={<Loading />}>
-                <RequareAuth>
-                  <Profile />
-                </RequareAuth>
+                {/* <RequareAuth> */}
+                <Profile />
+                {/* </RequareAuth> */}
               </Suspense>
             }
           ></Route>
