@@ -72,7 +72,7 @@ const Main = () => {
   useEffect(() => {
     fetchPosts(page);
   }, [page, limit]);
-
+  console.log("Helo");
   const fetchData = async () => {
     setLoading(true);
     try {
