@@ -22,6 +22,7 @@ const ProductProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [limit, setLimit] = useState(4);
+  const [input, setInput] = useState("");
   let numOfpages = Math.ceil(products.length / limit);
 
   let arrBtns = [];
@@ -56,7 +57,7 @@ const ProductProvider = ({ children }) => {
   const fetchData = async () => {
     try {
       const res = await axios.get(
-        "https://64dcf61be64a8525a0f76c4d.mockapi.io/api/v1/products"
+        `https://64dcf61be64a8525a0f76c4d.mockapi.io/api/v1/products?search=${input}`
       );
       setProducts(res.data);
     } catch (error) {
@@ -65,14 +66,14 @@ const ProductProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(input);
+  }, [input]);
 
-  const fetchPosts = async (page) => {
+  const fetchPosts = async (page, input) => {
     setLoading(true);
     try {
       const res = await axios.get(
-        `https://64dcf61be64a8525a0f76c4d.mockapi.io/api/v1/products?p=${page}&l=${limit}`
+        `https://64dcf61be64a8525a0f76c4d.mockapi.io/api/v1/products?search=${input}&p=${page}&l=${limit}`
       );
       setProduct1(res.data);
       setLoading(false);
@@ -84,8 +85,8 @@ const ProductProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchPosts(page);
-  }, [page, limit]);
+    fetchPosts(page, input);
+  }, [page, limit, products, input]);
 
   const handleChange = (e) => {
     setProduct({
@@ -136,7 +137,9 @@ const ProductProvider = ({ children }) => {
         `https://64dcf61be64a8525a0f76c4d.mockapi.io/api/v1/products/${product.id}`,
         product
       );
+
       fetchData();
+      fetchPosts(page);
       setTimeout(() => {
         navigate("/products");
       }, 10);
@@ -145,13 +148,14 @@ const ProductProvider = ({ children }) => {
     }
   };
 
-  const deleteData = (id) => {
+  const deleteData = async (id) => {
     try {
-      axios.delete(
+      await axios.delete(
         `https://64dcf61be64a8525a0f76c4d.mockapi.io/api/v1/products/${id}`
       );
       alert("Are you sure you want to delete");
       fetchData();
+      fetchPosts(page);
     } catch (error) {
       console.log(error);
     }
@@ -159,13 +163,14 @@ const ProductProvider = ({ children }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast("you have successfully added a new product");
+
     try {
       axios.post(
         "https://64dcf61be64a8525a0f76c4d.mockapi.io/api/v1/products",
         product
       );
       fetchData();
+      fetchPosts(page, input);
       setProduct({
         name: "",
         brand: "",
@@ -178,6 +183,7 @@ const ProductProvider = ({ children }) => {
       setTimeout(() => {
         navigate("/products");
       }, 10);
+      toast("you have successfully added a new product");
     } catch (error) {
       console.log(error);
     }
@@ -199,6 +205,23 @@ const ProductProvider = ({ children }) => {
     }, 10);
   };
 
+  const searchInput = (e) => {
+    e.preventDefault();
+    const textInput = e.target.value.toLowerCase();
+    setInput(textInput);
+  };
+
+  const filteredData = product1.filter((el) => {
+    if (input === "") {
+      return el;
+    } else {
+      return (
+        el.name.toLowerCase().includes(input) ||
+        el.brand.toLowerCase().includes(input)
+      );
+    }
+  });
+
   <ToastContainer />;
   return (
     <ProductProv.Provider
@@ -206,7 +229,6 @@ const ProductProvider = ({ children }) => {
         product,
         handleChange,
         handleSubmit,
-        products,
         editData,
         changePage,
         editSave,
@@ -221,6 +243,10 @@ const ProductProvider = ({ children }) => {
         products,
         loading,
         error,
+        setPage,
+        input,
+        searchInput,
+        filteredData,
       }}
     >
       {children}

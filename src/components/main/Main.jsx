@@ -13,25 +13,8 @@ const override = {
 
 const Main = () => {
   const prod = useContext(ProductProv);
-  const [input, setInput] = useState("");
+
   const [show, setShow] = useState(false);
-
-  const searchInput = (e) => {
-    e.preventDefault();
-    const textInput = e.target.value.toLowerCase();
-    setInput(textInput);
-  };
-
-  const filteredData = prod.product1.filter((el) => {
-    if (input === "") {
-      return el;
-    } else {
-      return (
-        el.name.toLowerCase().includes(input) ||
-        el.brand.toLowerCase().includes(input)
-      );
-    }
-  });
 
   return (
     <section className="main">
@@ -44,7 +27,7 @@ const Main = () => {
                 type="text"
                 placeholder="Поиск..."
                 className="input1"
-                onChange={searchInput}
+                onChange={prod.searchInput}
               />
               <img src="/image6.svg" alt="" className="img6" />
             </div>
@@ -73,7 +56,7 @@ const Main = () => {
                   />
                 ) : null} */}
                 {prod.product1.length > 0
-                  ? filteredData.map((el) => {
+                  ? prod.filteredData.map((el) => {
                       return (
                         <tr key={el.id}>
                           <td>
@@ -123,7 +106,7 @@ const Main = () => {
                       <button
                         className="btn2"
                         key={item}
-                        onClick={() => setPage(item)}
+                        onClick={() => prod.setPage(item)}
                       >
                         {item}
                       </button>
